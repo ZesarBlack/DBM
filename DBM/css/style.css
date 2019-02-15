@@ -1,0 +1,196 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  background: gray;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+}
+
+.container {
+  position: relative;
+  display: block;
+  width: 100vmin;
+  height: 80%;
+  margin: auto;
+  z-index: 100;
+}
+.container .menu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: white;
+  display: none;
+}
+
+.container .content {
+  position: relative;
+  width: 100%;
+  height: 73vh;
+  text-align: center;
+}
+.container .content .title {
+  font-weight: 300;
+  font-size: 5.8vh;
+  color: #ccc;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  padding-top: 6vh;
+  opacity: 0;
+}
+.container .content .title .letter {
+  display: inline-block;
+  line-height: 1em;
+  opacity: 0;
+}
+.container .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 28vh;
+}
+.container .bottom .nav {
+  width: 100%;
+  height: 40px;
+  padding-top: 15px;
+}
+.container .bottom .nav span {
+  color: #999;
+  cursor: pointer;
+}
+.container .bottom .nav span i {
+  font-size: 40px;
+  font-weight: 200;
+}
+.container .bottom .nav span:nth-child(1) {
+  padding-left: 10vmin;
+}
+.container .bottom .nav span:nth-child(2) {
+  padding-right: 10vmin;
+  float: right;
+}
+.container .bottom .orbit {
+  position: absolute;
+  top: 5vh;
+  width: 100%;
+  height: 100vmin;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+.container .bottom .orbit .planet_container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: -webkit-transform 0.7s ease-in;
+  transition: transform 0.7s ease-in;
+  transition: transform 0.7s ease-in, -webkit-transform 0.7s ease-in;
+}
+.container .bottom .orbit .planet_container .planet {
+  position: absolute;
+  border-radius: 50%;
+  width: 5vmin;
+  height: 5vmin;
+  transition: -webkit-transform 0.4s linear;
+  transition: transform 0.4s linear;
+  transition: transform 0.4s linear, -webkit-transform 0.4s linear;
+  will-change: transform;
+}
+.container .bottom .orbit .planet_container .pt {
+  transition: -webkit-transform 0.4s ease-in;
+  transition: transform 0.4s ease-in;
+  transition: transform 0.4s ease-in, -webkit-transform 0.4s ease-in;
+  -webkit-transform: scale(5);
+          transform: scale(5);
+  will-change: transform;
+}
+.container .bottom .orbit .planet_container .earth {
+  background: blue;
+  top: -2.5vmin;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.container .bottom .orbit .planet_container .mars {
+  background: blue;
+  right: 12vmin;
+  top: 12vmin;
+}
+.container .bottom .orbit .planet_container .jupiter {
+  background: blue;
+  right: -2.5vmin;
+  bottom: 46.5vmin;
+}
+.container .bottom .orbit .planet_container .saturn {
+  background: blue;
+  right: 12vmin;
+  bottom: 12vmin;
+}
+.container .bottom .orbit .planet_container .uranus {
+  background: blue;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: -2.5vmin;
+}
+.container .bottom .orbit .planet_container .neptune {
+  background: blue;
+  left: 12vmin;
+  bottom: 12vmin;
+}
+.container .bottom .orbit .planet_container .mercury {
+  background: blue;
+  left: -2.5vmin;
+  bottom: 46.5vmin;
+}
+.container .bottom .orbit .planet_container .venus {
+  background: blue;
+  left: 12vmin;
+  top: 12vmin;
+}
+.container .bottom .orbit .name_container {
+  position: absolute;
+  display: flex;
+  width: auto;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 8vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.container .bottom .orbit .name_container .more {
+  width: 100%;
+  padding: 8px 0;
+  color: #bbb;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.container .bottom .orbit .name_container .more:hover {
+  color: #888;
+  transition: color 0.3s;
+}
+.container .bottom .orbit .name_container .pn {
+  font-size: 25px;
+  color: #666;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  letter-spacing: 8px;
+  padding-left: 8px;
+  border-bottom: 3px solid #bbb;
+}
+.container .bottom .orbit .name_container .pn .letter {
+  display: inline-block;
+  line-height: 1em;
+  opacity: 0;
+}
