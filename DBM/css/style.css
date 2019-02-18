@@ -1,11 +1,11 @@
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500");
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 html, body {
-  background: gray;
+  background: white;
   height: 100%;
   overflow: hidden;
   font-family: 'Montserrat', helvetica, arial, sans-serif;
@@ -15,9 +15,89 @@ html, body {
   position: relative;
   display: block;
   width: 100vmin;
-  height: 80%;
+  height: 100%;
   margin: auto;
   z-index: 100;
+}
+.container .carousel {
+  position: absolute;
+  background: black;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.container .carousel .info_back {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 13vh;
+  z-index: 30;
+  background-position: center 2%;
+  background-size: cover;
+  text-align: center;
+}
+.container .carousel .info_back h1 {
+  text-align: center;
+  color: white;
+  margin-top: 1vh;
+  font-weight: 300;
+  font-size: 3vh;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  opacity: 0;
+}
+.container .carousel .info_back h1 .letter {
+  display: inline-block;
+  line-height: 1em;
+  opacity: 0;
+}
+.container .carousel .info_back:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(transparent, black);
+  opacity: 1;
+}
+.container .carousel .active {
+  display: block !important;
+}
+.container .carousel .citem {
+  display: none;
+  background: white;
+  width: 100%;
+  height: 100%;
+  text-align: justify;
+  transition: all 0.4s;
+}
+.container .carousel .citem h1 {
+  color: black;
+  font-weight: 400;
+  margin-top: 15vh;
+  padding: 2vmin 7vmin;
+  display: block;
+  width: 100%;
+  background: #eee;
+}
+.container .carousel .citem p {
+  color: #777;
+  font-size: 15px;
+  padding: 20px 7vmin;
+}
+.container .carousel .citem p span {
+  color: #555;
+  font-size: 19px;
+  display: block;
+  padding: 15px 0;
+}
+.container .carousel .citem ul {
+  color: #777;
+  padding: 0 12vmin;
 }
 .container .menu {
   position: fixed;
@@ -27,7 +107,30 @@ html, body {
   background: white;
   display: none;
 }
-
+.container .menu .close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.container .fixed_banner {
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+.container .fixed_banner i {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  font-size: 30px;
+  cursor: pointer;
+}
 .container .content {
   position: relative;
   width: 100%;
@@ -47,6 +150,49 @@ html, body {
   display: inline-block;
   line-height: 1em;
   opacity: 0;
+}
+.container .content .helmet {z
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 9vmin;
+}
+.container .content .helmet img {
+  position: absolute;
+  width: 58vmin;
+  margin: auto;
+  top: 12vmin;
+  bottom: 0vmin;
+  left: 0;
+  right: 0;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.container .content .helmet .config_position {
+  position: absolute;
+  width: 50vmin;
+  height: 50vmin;
+  background: white;
+  margin: auto;
+  top: 0;
+  bottom: 12vmin;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.container .content .helmet .config_position .config_photo {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 1;
+  will-change: background;
 }
 .container .bottom {
   position: absolute;
@@ -85,7 +231,7 @@ html, body {
   left: 0;
   right: 0;
 }
-.container .bottom .orbit .planet_container {
+.container .bottom .orbit .config_container {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -93,7 +239,7 @@ html, body {
   transition: transform 0.7s ease-in;
   transition: transform 0.7s ease-in, -webkit-transform 0.7s ease-in;
 }
-.container .bottom .orbit .planet_container .planet {
+.container .bottom .orbit .config_container .config {
   position: absolute;
   border-radius: 50%;
   width: 5vmin;
@@ -103,54 +249,55 @@ html, body {
   transition: transform 0.4s linear, -webkit-transform 0.4s linear;
   will-change: transform;
 }
-.container .bottom .orbit .planet_container .pt {
+.container .bottom .orbit .config_container .pt {
   transition: -webkit-transform 0.4s ease-in;
   transition: transform 0.4s ease-in;
   transition: transform 0.4s ease-in, -webkit-transform 0.4s ease-in;
-  -webkit-transform: scale(5);
-          transform: scale(5);
+  -webkit-transform: scale(3);
+          transform: scale(3);
   will-change: transform;
 }
-.container .bottom .orbit .planet_container .earth {
+.container .bottom .orbit .config_container .camara {
   background: blue;
   top: -2.5vmin;
   left: 0;
   right: 0;
   margin: auto;
 }
-.container .bottom .orbit .planet_container .mars {
+.container .bottom .orbit .config_container .resolucion {
   background: blue;
   right: 12vmin;
   top: 12vmin;
 }
-.container .bottom .orbit .planet_container .jupiter {
+
+.container .bottom .orbit .config_container .memoria {
   background: blue;
   right: -2.5vmin;
   bottom: 46.5vmin;
 }
-.container .bottom .orbit .planet_container .saturn {
+.container .bottom .orbit .config_container .precio {
   background: blue;
   right: 12vmin;
   bottom: 12vmin;
 }
-.container .bottom .orbit .planet_container .uranus {
+.container .bottom .orbit .config_container .procesador {
   background: blue;
   right: 0;
   left: 0;
   margin: auto;
   bottom: -2.5vmin;
 }
-.container .bottom .orbit .planet_container .neptune {
+.container .bottom .orbit .config_container .wifi {
   background: blue;
   left: 12vmin;
   bottom: 12vmin;
 }
-.container .bottom .orbit .planet_container .mercury {
+.container .bottom .orbit .config_container .ram {
   background: blue;
   left: -2.5vmin;
   bottom: 46.5vmin;
 }
-.container .bottom .orbit .planet_container .venus {
+.container .bottom .orbit .config_container .so {
   background: blue;
   left: 12vmin;
   top: 12vmin;
@@ -193,4 +340,40 @@ html, body {
   display: inline-block;
   line-height: 1em;
   opacity: 0;
+}
+
+.moon {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: config_rotation 2s infinite linear;
+          animation: config_rotation 2s infinite linear;
+}
+.moon span {
+  width: 0.8vmin;
+  height: 0.8vmin;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+@-webkit-keyframes config_rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes config_rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
